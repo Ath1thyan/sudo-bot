@@ -77,7 +77,10 @@ function App() {
         </div>
         <div className='chatFooter'>
           <div className='inp'>
-            <input onChange={(e) => setInput(e.target.value)} value={input} type='text' placeholder='Type a message...' />
+            <input onKeyDown={(e)=>{
+              if (e.key === "Enter")
+                onSent();
+            }} onChange={(e) => setInput(e.target.value)} value={input} type='text' placeholder='Type a message...' />
             <button onClick={handleSend} className='send'>
               <img src={sendBtn} alt='send' />
             </button>
